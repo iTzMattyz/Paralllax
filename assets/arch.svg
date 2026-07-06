@@ -1,0 +1,19 @@
+<svg width="180" height="300" viewBox="0 0 180 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="deep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c2438"/>
+      <stop offset="100%" stop-color="#05070d"/>
+    </linearGradient>
+  </defs>
+  <!-- stone frame -->
+  <path d="M6 300 L6 96 A84 84 0 0 1 174 96 L174 300 Z" fill="#4a4540"/>
+  <!-- dark opening -->
+  <path d="M26 300 L26 100 A64 64 0 0 1 154 100 L154 300 Z" fill="url(#deep)"/>
+  <!-- keystone -->
+  <rect x="80" y="8" width="20" height="26" rx="3" fill="#5a554e"/>
+  <!-- glowing arrow inviting to pass through -->
+  <g fill="#e8b53a" opacity="0.9">
+    <rect x="78" y="150" width="24" height="70"/>
+    <path d="M60 205 L90 250 L120 205 Z"/>
+  </g>
+</svg>

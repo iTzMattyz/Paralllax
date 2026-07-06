@@ -1,0 +1,66 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="dome" cx="50%" cy="22%" r="80%">
+      <stop offset="0%" stop-color="#2b3354"/>
+      <stop offset="55%" stop-color="#1b2138"/>
+      <stop offset="100%" stop-color="#0e1322"/>
+    </radialGradient>
+    <linearGradient id="ofloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2740"/>
+      <stop offset="100%" stop-color="#15131f"/>
+    </linearGradient>
+    <radialGradient id="window" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a2547"/>
+      <stop offset="100%" stop-color="#0a0f1f"/>
+    </radialGradient>
+  </defs>
+
+  <!-- domed wall -->
+  <rect width="1280" height="520" fill="url(#dome)"/>
+  <!-- dome ribs -->
+  <g stroke="#3a426a" stroke-width="3" opacity="0.4" fill="none">
+    <path d="M0 120 Q640 -40 1280 120"/>
+    <path d="M0 220 Q640 60 1280 220"/>
+    <path d="M0 330 Q640 180 1280 330"/>
+    <line x1="640" y1="0" x2="640" y2="330"/>
+    <line x1="320" y1="20" x2="360" y2="330"/>
+    <line x1="960" y1="20" x2="920" y2="330"/>
+  </g>
+
+  <!-- big round sky window (upper-left) -->
+  <circle cx="250" cy="190" r="150" fill="url(#window)" stroke="#43507e" stroke-width="10"/>
+  <g fill="#dfe6ff">
+    <circle cx="190" cy="150" r="2.5"/>
+    <circle cx="250" cy="120" r="2"/>
+    <circle cx="300" cy="170" r="3"/>
+    <circle cx="220" cy="220" r="2"/>
+    <circle cx="290" cy="240" r="2.5"/>
+    <circle cx="170" cy="210" r="2"/>
+    <circle cx="330" cy="200" r="2"/>
+    <circle cx="250" cy="190" r="2"/>
+  </g>
+  <circle cx="305" cy="135" r="16" fill="#e9e6cf" opacity="0.9"/>
+
+  <!-- telescope silhouette pointing to the window -->
+  <g fill="#11141f" stroke="#2a3050" stroke-width="2">
+    <rect x="470" y="470" width="14" height="60"/>
+    <rect x="556" y="470" width="14" height="60"/>
+    <rect x="500" y="430" width="40" height="40"/>
+    <rect x="395" y="300" width="180" height="44" rx="22" transform="rotate(-32 485 322)"/>
+  </g>
+  <circle cx="402" cy="262" r="22" fill="#1a2038" stroke="#2a3050" stroke-width="2"/>
+
+  <!-- floor -->
+  <rect y="520" width="1280" height="200" fill="url(#ofloor)"/>
+  <g stroke="#0f0d18" stroke-width="2" opacity="0.5">
+    <line x1="0" y1="580" x2="1280" y2="580"/>
+    <line x1="0" y1="650" x2="1280" y2="650"/>
+    <line x1="420" y1="520" x2="400" y2="720"/>
+    <line x1="860" y1="520" x2="880" y2="720"/>
+  </g>
+
+  <!-- faint zodiac ring inlaid on the floor -->
+  <ellipse cx="640" cy="640" rx="360" ry="56" fill="none" stroke="#3a426a" stroke-width="3" opacity="0.35"/>
+
+  <rect width="1280" height="60" fill="#0a0d18" opacity="0.5"/>
+</svg>

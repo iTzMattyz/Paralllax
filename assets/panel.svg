@@ -1,0 +1,27 @@
+<svg width="200" height="240" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="196" height="236" rx="8" fill="#3a3f47"/>
+  <rect x="12" y="12" width="176" height="216" rx="4" fill="#4c525c"/>
+  <!-- grid of lights -->
+  <g>
+    <circle cx="55" cy="55" r="16" fill="#2a6e3a"/>
+    <circle cx="100" cy="55" r="16" fill="#8a8f33"/>
+    <circle cx="145" cy="55" r="16" fill="#2a6e3a"/>
+    <circle cx="55" cy="100" r="16" fill="#8a8f33"/>
+    <circle cx="100" cy="100" r="16" fill="#2a6e3a"/>
+    <circle cx="145" cy="100" r="16" fill="#8a8f33"/>
+    <circle cx="55" cy="145" r="16" fill="#2a6e3a"/>
+    <circle cx="100" cy="145" r="16" fill="#8a8f33"/>
+    <circle cx="145" cy="145" r="16" fill="#2a6e3a"/>
+  </g>
+  <!-- switches -->
+  <g fill="#23262b">
+    <rect x="40" y="185" width="26" height="36" rx="4"/>
+    <rect x="87" y="185" width="26" height="36" rx="4"/>
+    <rect x="134" y="185" width="26" height="36" rx="4"/>
+  </g>
+  <g fill="#c0c6cc">
+    <rect x="46" y="190" width="14" height="14" rx="2"/>
+    <rect x="93" y="205" width="14" height="14" rx="2"/>
+    <rect x="140" y="190" width="14" height="14" rx="2"/>
+  </g>
+</svg>

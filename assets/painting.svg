@@ -1,0 +1,10 @@
+<svg width="180" height="160" viewBox="0 0 180 160" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="176" height="156" rx="4" fill="#caa23e"/>
+  <rect x="10" y="10" width="160" height="140" fill="#8a6a1e"/>
+  <rect x="18" y="18" width="144" height="124" fill="#2c3a4a"/>
+  <!-- a simple landscape -->
+  <rect x="18" y="100" width="144" height="42" fill="#3a5a3a"/>
+  <circle cx="130" cy="50" r="16" fill="#e8d27a"/>
+  <path d="M18 100 L60 60 L92 96 Z" fill="#4a6a78"/>
+  <path d="M70 100 L120 54 L162 100 Z" fill="#5a7a88"/>
+</svg>

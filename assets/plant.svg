@@ -1,0 +1,17 @@
+<svg width="130" height="160" viewBox="0 0 130 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- foliage -->
+  <g fill="#3f7a44">
+    <ellipse cx="65" cy="58" rx="40" ry="46"/>
+    <ellipse cx="38" cy="70" rx="26" ry="34"/>
+    <ellipse cx="92" cy="70" rx="26" ry="34"/>
+  </g>
+  <g fill="#52964f">
+    <ellipse cx="55" cy="50" rx="20" ry="26"/>
+    <ellipse cx="80" cy="62" rx="16" ry="22"/>
+  </g>
+  <!-- pot -->
+  <path d="M34 104 L96 104 L88 156 L42 156 Z" fill="#a85a32"/>
+  <rect x="30" y="98" width="70" height="14" rx="3" fill="#c4703f"/>
+  <!-- soil -->
+  <ellipse cx="65" cy="104" rx="31" ry="6" fill="#3a2616"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="140" height="120" viewBox="0 0 140 120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="136" height="116" rx="6" fill="#3a3f45"/>
+  <rect x="10" y="10" width="120" height="100" rx="4" fill="#4c525a"/>
+  <rect x="20" y="20" width="100" height="80" rx="3" fill="none" stroke="#2a2e33" stroke-width="3"/>
+  <!-- dial -->
+  <circle cx="56" cy="60" r="22" fill="#23262a"/>
+  <circle cx="56" cy="60" r="22" fill="none" stroke="#9aa0a6" stroke-width="3"/>
+  <line x1="56" y1="60" x2="56" y2="42" stroke="#d8b24a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="56" cy="60" r="4" fill="#9aa0a6"/>
+  <!-- handle -->
+  <rect x="92" y="46" width="14" height="28" rx="4" fill="#9aa0a6"/>
+</svg>

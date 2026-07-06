@@ -1,0 +1,58 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="26%" r="75%">
+      <stop offset="0%" stop-color="#5c4a39"/>
+      <stop offset="60%" stop-color="#3a2e23"/>
+      <stop offset="100%" stop-color="#231a12"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4d3623"/>
+      <stop offset="100%" stop-color="#2b1d11"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6e4a2f"/>
+      <stop offset="100%" stop-color="#4a3119"/>
+    </linearGradient>
+  </defs>
+
+  <!-- upper wall with warm lamp glow -->
+  <rect width="1280" height="500" fill="url(#glow)"/>
+
+  <!-- wainscoting band -->
+  <rect y="356" width="1280" height="144" fill="#36291d"/>
+  <rect y="352" width="1280" height="8" fill="#1b130c"/>
+  <g stroke="#241a11" stroke-width="3" opacity="0.7">
+    <line x1="160" y1="368" x2="160" y2="492"/>
+    <line x1="320" y1="368" x2="320" y2="492"/>
+    <line x1="480" y1="368" x2="480" y2="492"/>
+    <line x1="800" y1="368" x2="800" y2="492"/>
+    <line x1="960" y1="368" x2="960" y2="492"/>
+    <line x1="1120" y1="368" x2="1120" y2="492"/>
+  </g>
+
+  <!-- floor -->
+  <rect y="500" width="1280" height="220" fill="url(#floor)"/>
+  <g stroke="#1f150c" stroke-width="2" opacity="0.55">
+    <line x1="0" y1="556" x2="1280" y2="556"/>
+    <line x1="0" y1="616" x2="1280" y2="616"/>
+    <line x1="0" y1="676" x2="1280" y2="676"/>
+    <line x1="220" y1="500" x2="180" y2="720"/>
+    <line x1="520" y1="500" x2="500" y2="720"/>
+    <line x1="820" y1="500" x2="840" y2="720"/>
+    <line x1="1080" y1="500" x2="1120" y2="720"/>
+  </g>
+
+  <!-- warm rug under the desk -->
+  <ellipse cx="600" cy="596" rx="440" ry="56" fill="#6e2b2b" opacity="0.45"/>
+  <ellipse cx="600" cy="596" rx="360" ry="42" fill="none" stroke="#8a3a3a" stroke-width="4" opacity="0.4"/>
+
+  <!-- the desk (the drawer sits on its front) -->
+  <rect x="420" y="441" width="340" height="170" fill="url(#desk)"/>
+  <rect x="412" y="431" width="356" height="20" rx="4" fill="#7a5235"/>
+  <rect x="436" y="601" width="22" height="52" fill="#3c2715"/>
+  <rect x="722" y="601" width="22" height="52" fill="#3c2715"/>
+
+  <!-- soft ceiling vignette edges -->
+  <rect width="1280" height="720" fill="black" opacity="0"/>
+  <rect width="1280" height="60" fill="#1a120b" opacity="0.55"/>
+</svg>
