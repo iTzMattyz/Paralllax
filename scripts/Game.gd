@@ -18,7 +18,7 @@ extends Control
 ##   3. libri sulla scrivania         -> clic nell'ordine dei colori -> "Mirta?"
 ##   4. dietro i libri                -> FRAMMENTO 2
 ##   5. foto sulla scrivania          -> ricomposta -> data 25/02
-##   6. porta                         -> 2502 -> CUTSCENE 2 -> FINE
+##   6. porta                         -> 2502 -> CUTSCENE 2 -> "TO BE CONTINUED"
 ## ============================================================================
 
 const P := "res://assets/parallax/"
@@ -1176,7 +1176,7 @@ func _play_cutscene2() -> void:
 	root.add_child(img)
 
 	var lab := _cutscene_label(root,
-		"25/10 ... Mirta ... quel profilo ... mi è tutto così familiare, eppure non riesco ancora a ricordare",
+		"25/02 ... Mirta ... quel profilo ... mi è tutto così familiare, eppure non riesco ancora a ricordare",
 		Rect2(80, 270, 620, 180), 30)
 	_cutscene_add_skip(root)
 
@@ -1288,40 +1288,42 @@ func _win() -> void:
 
 	await _play_cutscene2()
 
-	var logo := TextureRect.new()
-	logo.texture = load(P + "logo.png")
-	# expand_mode prima di size (vedi MainMenu: evita il blocco alla min size)
-	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	logo.stretch_mode = TextureRect.STRETCH_SCALE
-	logo.position = Vector2(430, 180)
-	logo.size = Vector2(420, 166)
-	logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	veil.add_child(logo)
+	# schermata finale: cielo stellato (Livello 1.png) + "TO BE CONTINUED"
+	# al centro + pulsante "torna al menu" (Rettangolo 1.png) sotto.
+	var bg := TextureRect.new()
+	bg.texture = load(P + "Livello 1.png")
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	veil.add_child(bg)
 
-	var fine := Label.new()
-	fine.text = "F I N E"
-	fine.position = Vector2(0, 400)
-	fine.size = Vector2(1280, 60)
-	fine.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	fine.add_theme_font_size_override("font_size", 40)
-	fine.add_theme_color_override("font_color", Color(0.93, 0.78, 0.35))
-	veil.add_child(fine)
+	var title_tex: Texture2D = load(P + "TO BE CONTINUED.png")
+	var tw := 880.0
+	var th := tw * title_tex.get_height() / title_tex.get_width()
+	var title := TextureRect.new()
+	title.texture = title_tex
+	title.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	title.stretch_mode = TextureRect.STRETCH_SCALE
+	title.size = Vector2(tw, th)
+	title.position = Vector2((1280.0 - tw) / 2.0, 250.0)
+	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	veil.add_child(title)
 
-	var sub := Label.new()
-	sub.text = "25 febbraio. La porta finalmente si apre."
-	sub.position = Vector2(0, 460)
-	sub.size = Vector2(1280, 30)
-	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	sub.add_theme_font_size_override("font_size", 20)
-	sub.add_theme_color_override("font_color", Color(0.85, 0.83, 0.75))
-	veil.add_child(sub)
-
-	var menu_btn := Button.new()
-	menu_btn.text = "TORNA AL MENU INIZIALE"
-	menu_btn.position = Vector2(490, 540)
-	menu_btn.size = Vector2(300, 52)
+	var btn_tex: Texture2D = load(P + "Rettangolo 1.png")
+	var bw := 340.0
+	var bh := bw * btn_tex.get_height() / btn_tex.get_width()
+	var menu_btn := TextureButton.new()
+	menu_btn.texture_normal = btn_tex
+	menu_btn.ignore_texture_size = true
+	menu_btn.stretch_mode = TextureButton.STRETCH_SCALE
+	menu_btn.size = Vector2(bw, bh)
+	menu_btn.position = Vector2((1280.0 - bw) / 2.0, 470.0)
 	menu_btn.focus_mode = Control.FOCUS_NONE
 	menu_btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	menu_btn.self_modulate = Color(0.92, 0.90, 0.85)
+	menu_btn.mouse_entered.connect(func() -> void: menu_btn.self_modulate = Color(0.95, 0.8, 0.35))
+	menu_btn.mouse_exited.connect(func() -> void: menu_btn.self_modulate = Color(0.92, 0.90, 0.85))
 	menu_btn.pressed.connect(func() -> void:
 		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn"))
 	veil.add_child(menu_btn)
@@ -1340,34 +1342,41 @@ func _build_pause_menu() -> void:
 	pause_layer.add_child(pause_root)
 
 	var veil := ColorRect.new()
-	veil.color = Color(0.18, 0.18, 0.18, 0.92)
+	veil.color = Color(0.10, 0.10, 0.10, 0.90)
 	veil.set_anchors_preset(Control.PRESET_FULL_RECT)
 	pause_root.add_child(veil)
 
-	var continua := _pause_button("CONTINUA", Vector2(0, 280))
+	var continua := _pause_button("CONTINUA.png", 255.0)
 	continua.pressed.connect(func() -> void: pause_root.visible = false)
 	pause_root.add_child(continua)
 
-	var menu := _pause_button("TORNA AL MENU INIZIALE", Vector2(0, 370))
+	var menu := _pause_button("TORNA MENU INIZIALE.png", 385.0)
 	menu.pressed.connect(func() -> void:
 		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn"))
 	pause_root.add_child(menu)
 
 
-func _pause_button(text: String, pos: Vector2) -> Button:
-	var b := Button.new()
-	b.text = text
-	b.position = Vector2(240, pos.y)
-	b.size = Vector2(800, 60)
+## Pulsante-immagine del menu di pausa: la scritta (bianca su fondo
+## trasparente) è disegnata nel PNG; qui la ridimensiono a un'altezza comune
+## mantenendo le proporzioni e la centro, con tinta oro al passaggio del mouse.
+const PAUSE_BTN_HEIGHT := 105.0
+
+
+func _pause_button(img: String, y: float) -> TextureButton:
+	var tex: Texture2D = load(P + img)
+	var w := PAUSE_BTN_HEIGHT * tex.get_width() / tex.get_height()
+
+	var b := TextureButton.new()
+	b.texture_normal = tex
+	b.ignore_texture_size = true
+	b.stretch_mode = TextureButton.STRETCH_SCALE
+	b.size = Vector2(w, PAUSE_BTN_HEIGHT)
+	b.position = Vector2((1280.0 - w) / 2.0, y)
 	b.focus_mode = Control.FOCUS_NONE
 	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	b.add_theme_font_size_override("font_size", 34)
-	b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-	b.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
-	b.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
-	b.add_theme_color_override("font_color", Color(0.95, 0.95, 0.95))
-	b.add_theme_color_override("font_hover_color", Color(0.95, 0.8, 0.35))
-	b.add_theme_color_override("font_pressed_color", Color(0.95, 0.8, 0.35))
+	b.self_modulate = Color(0.92, 0.90, 0.85)
+	b.mouse_entered.connect(func() -> void: b.self_modulate = Color(0.95, 0.8, 0.35))
+	b.mouse_exited.connect(func() -> void: b.self_modulate = Color(0.92, 0.90, 0.85))
 	return b
 
 
